@@ -61,6 +61,11 @@ def program():
     except:
         print('arquivo não carregado')
 
+    # importa json
+    # abrir
+    # analisar (soma, media, minimo, maximo ou contagem) 
+    # analisar (if, else)
+    # tirar conclusão
 
 if __name__ == '__main__':
     program()
