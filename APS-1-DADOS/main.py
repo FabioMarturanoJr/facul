@@ -3,7 +3,7 @@ import pandas as pd
 import json
 
 
-def importaArquivo(nomeArquivo):
+def importaArquivo(nomeArquivo): # importa o arquivo tranforma em json e retona os dados
     try:
         loadFile = open(nomeArquivo, "r")
         read = loadFile.read()
@@ -16,7 +16,7 @@ def importaArquivo(nomeArquivo):
         print('arquivo não carregado')
 
 
-def analizaNotasAlunos(notas):
+def analizaNotasAlunos(notas): # analia a notas do alunos
     print('########## Notas ##########')
     print(f'Total: {np.sum(notas)}')
     print(f'Media: {np.mean(notas)}')
@@ -26,7 +26,7 @@ def analizaNotasAlunos(notas):
     print('\n')
 
 
-def analizaSituacao(situacoes):
+def analizaSituacao(situacoes): # contabilida a situação dos alunos
     aprovado = 0
     reprovado = 0
     trancado = 0
@@ -46,10 +46,12 @@ def analizaSituacao(situacoes):
 
 
 def program():
-    alunos = importaArquivo("arquivoJson.txt")["alunos"]
+    alunos = importaArquivo("arquivoJson.txt")["alunos"] # importa o arquivo e pega o conteudo a chave alunos
 
-    analizaNotasAlunos(np.array([aluno['notaFinal'] for aluno in alunos]))
-    analizaSituacao(np.array([aluno['situacao'] for aluno in alunos]))
+    print(f'Total Alunos {len(alunos)} \n')
+
+    analizaNotasAlunos(np.array([aluno['notaFinal'] for aluno in alunos])) # seleciona dos alunos suas notas
+    analizaSituacao(np.array([aluno['situacao'] for aluno in alunos])) # seleciona dos alunos suas situações
 
 
 if __name__ == '__main__':
